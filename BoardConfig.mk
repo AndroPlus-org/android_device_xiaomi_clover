@@ -38,6 +38,9 @@ TARGET_BOOTLOADER_BOARD_NAME := sdm660
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
+# Hack for build
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 

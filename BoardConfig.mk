@@ -81,7 +81,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_INCLUDE_CRYPTO := true
-TW_MAX_BRIGHTNESS := 100
+TW_MAX_BRIGHTNESS := 4095
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true

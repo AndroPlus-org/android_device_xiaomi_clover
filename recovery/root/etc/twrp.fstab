@@ -14,7 +14,7 @@
 #/abl              emmc     /dev/block/bootdevice/by-name/abl          flags=display="Bootloader";backup=1;flashimg=1
 #/ablbak           emmc     /dev/block/bootdevice/by-name/ablbak       flags=display="Bootloader_Backup";backup=1;flashimg=1
 ## mounttodecrypt
-/firmware         vfat     /dev/block/bootdevice/by-name/modem        flags=display="Firmware";mounttodecrypt
+/firmware         vfat     /dev/block/bootdevice/by-name/modem        flags=display="Firmware";
 /firmware_image   emmc     /dev/block/bootdevice/by-name/modem        flags=display="Firmware";flashimg=1;backup=1
 /persist          ext4     /dev/block/bootdevice/by-name/persist      flags=display="Persist";wipeingui;backup=1
 /persist_image    emmc     /dev/block/bootdevice/by-name/persist      flags=display="Persist";flashimg=1
@@ -58,4 +58,3 @@
 
 /external_sd      vfat     /dev/block/mmcblk1p1  /dev/block/mmcblk1   flags=display="external_sd";storage;wipeingui;removable;fsflags="utf8"
 /usb-otg          vfat     /dev/block/sda1  /dev/block/sda            flags=display="usb-otg";storage;wipeingui;removable;fsflags="utf8"
-

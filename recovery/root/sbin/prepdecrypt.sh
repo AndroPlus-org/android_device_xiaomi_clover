@@ -29,6 +29,9 @@ fi
 syspath="/dev/block/bootdevice/by-name/system$suffix"
 mkdir /s
 mount -t ext4 -o ro "$syspath" /s
+fwpath="/dev/block/bootdevice/by-name/firmware$suffix"
+mkdir /fw
+mount -t vfat -o ro "$fwpath" /fw
 
 is_fastboot_twrp=$(getprop ro.boot.fastboot)
 if [ ! -z "$is_fastboot_twrp" ]; then
@@ -57,8 +60,10 @@ fi
 
 ###### NOTE: The below is no longer used but I'm keeping it here in case it is needed again at some point!
 mkdir -p /vendor/lib64/hw/
+mkdir -p /firmware/image/
 
 cp /s/system/lib64/android.hidl.base@1.0.so /sbin/
+cp /s/system/lib64/vndk-sp/libhidlbase.so /sbin/
 cp /s/system/lib64/libicuuc.so /sbin/
 cp /s/system/lib64/libxml2.so /sbin/
 cp /s/system/lib64/libkeymaster1.so /sbin/
@@ -66,41 +71,53 @@ cp /s/system/lib64/libkeymaster_messages.so /sbin/
 
 relink /s/system/vendor/bin/qseecomd
 
-cp  /s/system/vendor/lib64/libdiag.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libdrmfs.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libdrmtime.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libGPreqcancel.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libGPreqcancel_svc.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libqdutils.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libqisl.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libqservice.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libQSEEComAPI.so /vendor/lib64/
-cp  /s/system/vendor/lib64/librecovery_updater_msm.so /vendor/lib64/
-cp  /s/system/vendor/lib64/librpmb.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libsecureui.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libSecureUILib.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libsecureui_svcsock.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libspcom.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libspl.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libssd.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libStDrvInt.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libtime_genoff.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libkeymasterdeviceutils.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libkeymasterprovision.so /vendor/lib64/
-cp  /s/system/vendor/lib64/libkeymasterutils.so /vendor/lib64/
-cp  /s/system/vendor/lib64/hw/bootctrl.sdm660.so /vendor/lib64/hw/
+cp /s/system/lib64/android.hidl.base@1.0.so /vendor/lib64/
+cp /s/system/lib64/vndk-sp/libhidlbase.so /vendor/lib64/
+cp /s/system/vendor/lib64/libdiag.so /vendor/lib64/
+cp /s/system/vendor/lib64/libdrmfs.so /vendor/lib64/
+cp /s/system/vendor/lib64/libdrmtime.so /vendor/lib64/
+cp /s/system/vendor/lib64/libGPreqcancel.so /vendor/lib64/
+cp /s/system/vendor/lib64/libGPreqcancel_svc.so /vendor/lib64/
+cp /s/system/vendor/lib64/libqdutils.so /vendor/lib64/
+cp /s/system/vendor/lib64/libqisl.so /vendor/lib64/
+cp /s/system/vendor/lib64/libqservice.so /vendor/lib64/
+cp /s/system/vendor/lib64/libQSEEComAPI.so /vendor/lib64/
+cp /s/system/vendor/lib64/librecovery_updater_msm.so /vendor/lib64/
+cp /s/system/vendor/lib64/librpmb.so /vendor/lib64/
+cp /s/system/vendor/lib64/libsecureui.so /vendor/lib64/
+cp /s/system/vendor/lib64/libSecureUILib.so /vendor/lib64/
+cp /s/system/vendor/lib64/libsecureui_svcsock.so /vendor/lib64/
+cp /s/system/vendor/lib64/libspcom.so /vendor/lib64/
+cp /s/system/vendor/lib64/libspl.so /vendor/lib64/
+cp /s/system/vendor/lib64/libssd.so /vendor/lib64/
+cp /s/system/vendor/lib64/libStDrvInt.so /vendor/lib64/
+cp /s/system/vendor/lib64/libtime_genoff.so /vendor/lib64/
+cp /s/system/vendor/lib64/libkeymasterdeviceutils.so /vendor/lib64/
+cp /s/system/vendor/lib64/libkeymasterprovision.so /vendor/lib64/
+cp /s/system/vendor/lib64/libkeymasterutils.so /vendor/lib64/
+cp /s/system/vendor/lib64/hw/bootctrl.sdm660.so /vendor/lib64/hw/
 cp /s/system/vendor/lib64/hw/gatekeeper.sdm660.so /vendor/lib64/hw/
 cp /s/system/vendor/lib64/hw/keystore.sdm660.so /vendor/lib64/hw/
-cp  /s/system/vendor/lib64/hw/android.hardware.boot@1.0-impl.so /vendor/lib64/hw/
-cp  /s/system/vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so /vendor/lib64/hw/
-cp  /s/system/vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so /vendor/lib64/hw/
+cp /s/system/vendor/lib64/hw/android.hardware.boot@1.0-impl.so /vendor/lib64/hw/
+cp /s/system/vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so /vendor/lib64/hw/
+cp /s/system/vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so /vendor/lib64/hw/
 
-cp  /s/system/vendor/manifest.xml /vendor/
-cp  /s/system/vendor/compatibility_matrix.xml /vendor/
+cp /s/system/vendor/manifest.xml /vendor/
+cp /s/system/vendor/compatibility_matrix.xml /vendor/
 
 relink  /s/system/vendor/bin/hw/android.hardware.boot@1.0-service
 relink  /s/system/vendor/bin/hw/android.hardware.keymaster@3.0-service
 relink  /s/system/vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+
+cp /fw/image/keymaste.mdt /firmware/image/keymaster.mdt
+cp /fw/image/keymaste.b00 /firmware/image/keymaster.b00
+cp /fw/image/keymaste.b01 /firmware/image/keymaster.b01
+cp /fw/image/keymaste.b02 /firmware/image/keymaster.b02
+cp /fw/image/keymaste.b03 /firmware/image/keymaster.b03
+cp /fw/image/keymaste.b04 /firmware/image/keymaster.b04
+cp /fw/image/keymaste.b05 /firmware/image/keymaster.b05
+cp /fw/image/keymaste.b06 /firmware/image/keymaster.b06
+cp /fw/image/keymaste.b07 /firmware/image/keymaster.b07
 
 finish
 exit 0

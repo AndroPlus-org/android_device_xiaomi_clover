@@ -2,17 +2,6 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware rw shortname=lower uid=1000 gid=1000 dmask=227 fmask=337
-    symlink /firmware/image/keymaste.mdt /firmware/image/keymaster.mdt
-    symlink /firmware/image/keymaste.b00 /firmware/image/keymaster.b00
-    symlink /firmware/image/keymaste.b01 /firmware/image/keymaster.b01
-    symlink /firmware/image/keymaste.b02 /firmware/image/keymaster.b02
-    symlink /firmware/image/keymaste.b03 /firmware/image/keymaster.b03
-    symlink /firmware/image/keymaste.b04 /firmware/image/keymaster.b04
-    symlink /firmware/image/keymaste.b05 /firmware/image/keymaster.b05
-    symlink /firmware/image/keymaste.b06 /firmware/image/keymaster.b06
-    symlink /firmware/image/keymaste.b07 /firmware/image/keymaster.b07
-
 on boot
     # Workaround for adb not coming up
     setprop sys.usb.config mtp,adb

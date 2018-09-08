@@ -18,18 +18,13 @@ finish()
 	exit 0
 }
 
-suffix=$(getprop ro.boot.slot_suffix)
-if [ -z "$suffix" ]; then
-	suf=$(getprop ro.boot.slot)
-	suffix="_$suf"
-fi
-#venpath="/dev/block/bootdevice/by-name/vendor$suffix"
+#venpath="/dev/block/bootdevice/by-name/vendor"
 #mkdir /v
 #mount -t ext4 -o ro "$venpath" /v
-syspath="/dev/block/bootdevice/by-name/system$suffix"
+syspath="/dev/block/bootdevice/by-name/system"
 mkdir /s
 mount -t ext4 -o ro "$syspath" /s
-fwpath="/dev/block/bootdevice/by-name/firmware$suffix"
+fwpath="/dev/block/bootdevice/by-name/firmware"
 mkdir /fw
 mount -t vfat -o ro "$fwpath" /fw
 

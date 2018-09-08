@@ -70,10 +70,13 @@ cp /s/lib64/vndk-sp/libhidlbase.so /sbin/
 cp /v/lib64/libdiag.so /sbin/
 cp /v/lib64/libdrmfs.so /sbin/
 cp /v/lib64/libdrmtime.so /sbin/
+cp /v/lib64/libdrmtime.so /vendor/lib64/
 cp /v/lib64/libGPreqcancel.so /sbin/
+cp /v/lib64/libGPreqcancel.so /vendor/lib64/
 cp /v/lib64/libGPreqcancel_svc.so /sbin/
 cp /v/lib64/libqdutils.so /sbin/
 cp /v/lib64/libqisl.so /sbin/
+cp /v/lib64/libqisl.so /vendor/lib64/
 cp /v/lib64/libqservice.so /sbin/
 cp /v/lib64/libQSEEComAPI.so /sbin/
 cp /v/lib64/librecovery_updater_msm.so /sbin/

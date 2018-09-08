@@ -15,6 +15,13 @@ service sbinqseecomd /sbin/qseecomd
     group root
     seclabel u:r:recovery:s0
 
+service prepdecrypt /sbin/prepdecrypt.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
 on property:ro.crypto.state=encrypted
     start sbinqseecomd
 
@@ -26,6 +33,9 @@ on init
     start fingerprintid
     # Enable double-tap to wake
     #write /sys/devices/virtual/touch/tp_dev/gesture_on 1
+    setprop ro.hardware.keystore sdm660
+    setprop ro.hardware.gatekeeper sdm660
+    start prepdecrypt
 
 # read ro.build.fingerprint from system, setprop it. for ota
 service fingerprintid /init.fingerprintid.sh
@@ -34,7 +44,6 @@ service fingerprintid /init.fingerprintid.sh
     user root
     group root
     seclabel u:r:recovery:s0
-
 
 on boot
     # Enable Power modes and set the CPU Freq Sampling rates

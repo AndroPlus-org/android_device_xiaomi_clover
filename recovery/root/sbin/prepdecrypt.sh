@@ -60,7 +60,7 @@ cp /s/lib64/android.hidl.base@1.0.so /sbin/
 cp /s/lib64/vndk-sp/libhidlbase.so /sbin/
 cp /s/lib64/libicuuc.so /sbin/
 cp /s/lib64/libxml2.so /sbin/
-cp /s/lib64/libkeymaster1.so /sbin/
+#cp /s/lib64/libkeymaster1.so /sbin/
 cp /s/lib64/libkeymaster_messages.so /sbin/
 
 relink /v/bin/qseecomd
@@ -89,6 +89,7 @@ cp /v/lib64/libtime_genoff.so /sbin/
 cp /v/lib64/libkeymasterdeviceutils.so /sbin/
 cp /v/lib64/libkeymasterprovision.so /sbin/
 cp /v/lib64/libkeymasterutils.so /sbin/
+cp /v/lib64/vendor.qti.hardware.tui_comm@1.0_vendor.so /sbin/
 #cp /v/lib64/hw/bootctrl.sdm660.so /vendor/lib64/hw/
 cp /v/lib64/hw/gatekeeper.sdm660.so /vendor/lib64/hw/
 cp /v/lib64/hw/keystore.sdm660.so /vendor/lib64/hw/

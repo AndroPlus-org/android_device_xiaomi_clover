@@ -117,5 +117,7 @@ cp /fw/image/keymaste.b05 /firmware/image/keymaster.b05
 cp /fw/image/keymaste.b06 /firmware/image/keymaster.b06
 cp /fw/image/keymaste.b07 /firmware/image/keymaster.b07
 
+chmod 0644 /firmware/image/keymaster*
+
 finish
 exit 0

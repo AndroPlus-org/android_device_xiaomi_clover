@@ -109,15 +109,15 @@ relink  /s/system/vendor/bin/hw/android.hardware.boot@1.0-service
 relink  /s/system/vendor/bin/hw/android.hardware.keymaster@3.0-service
 relink  /s/system/vendor/bin/hw/android.hardware.gatekeeper@1.0-service
 
-cp /fw/image/keymaste.mdt /firmware/image/keymaster.mdt
-cp /fw/image/keymaste.b00 /firmware/image/keymaster.b00
-cp /fw/image/keymaste.b01 /firmware/image/keymaster.b01
-cp /fw/image/keymaste.b02 /firmware/image/keymaster.b02
-cp /fw/image/keymaste.b03 /firmware/image/keymaster.b03
-cp /fw/image/keymaste.b04 /firmware/image/keymaster.b04
-cp /fw/image/keymaste.b05 /firmware/image/keymaster.b05
-cp /fw/image/keymaste.b06 /firmware/image/keymaster.b06
-cp /fw/image/keymaste.b07 /firmware/image/keymaster.b07
+cp /fw/firmwareimage/keymaste.mdt /firmware/image/keymaster.mdt
+cp /fw/firmwareimage/keymaste.b00 /firmware/image/keymaster.b00
+cp /fw/firmwareimage/keymaste.b01 /firmware/image/keymaster.b01
+cp /fw/firmwareimage/keymaste.b02 /firmware/image/keymaster.b02
+cp /fw/firmwareimage/keymaste.b03 /firmware/image/keymaster.b03
+cp /fw/firmwareimage/keymaste.b04 /firmware/image/keymaster.b04
+cp /fw/firmwareimage/keymaste.b05 /firmware/image/keymaster.b05
+cp /fw/firmwareimage/keymaste.b06 /firmware/image/keymaster.b06
+cp /fw/firmwareimage/keymaste.b07 /firmware/image/keymaster.b07
 
 finish
 exit 0

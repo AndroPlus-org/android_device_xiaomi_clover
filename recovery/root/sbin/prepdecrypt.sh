@@ -65,43 +65,43 @@ cp /s/lib64/libkeymaster_messages.so /sbin/
 
 relink /v/bin/qseecomd
 
-cp /s/lib64/android.hidl.base@1.0.so /vendor/lib64/
-cp /s/lib64/vndk-sp/libhidlbase.so /vendor/lib64/
-cp /v/lib64/libdiag.so /vendor/lib64/
-cp /v/lib64/libdrmfs.so /vendor/lib64/
-cp /v/lib64/libdrmtime.so /vendor/lib64/
-cp /v/lib64/libGPreqcancel.so /vendor/lib64/
-cp /v/lib64/libGPreqcancel_svc.so /vendor/lib64/
-cp /v/lib64/libqdutils.so /vendor/lib64/
-cp /v/lib64/libqisl.so /vendor/lib64/
-cp /v/lib64/libqservice.so /vendor/lib64/
-cp /v/lib64/libQSEEComAPI.so /vendor/lib64/
-cp /v/lib64/librecovery_updater_msm.so /vendor/lib64/
-cp /v/lib64/librpmb.so /vendor/lib64/
-cp /v/lib64/libsecureui.so /vendor/lib64/
-cp /v/lib64/libSecureUILib.so /vendor/lib64/
-cp /v/lib64/libsecureui_svcsock.so /vendor/lib64/
-cp /v/lib64/libspcom.so /vendor/lib64/
-cp /v/lib64/libspl.so /vendor/lib64/
-cp /v/lib64/libssd.so /vendor/lib64/
-cp /v/lib64/libStDrvInt.so /vendor/lib64/
-cp /v/lib64/libtime_genoff.so /vendor/lib64/
-cp /v/lib64/libkeymasterdeviceutils.so /vendor/lib64/
-cp /v/lib64/libkeymasterprovision.so /vendor/lib64/
-cp /v/lib64/libkeymasterutils.so /vendor/lib64/
-cp /v/lib64/hw/bootctrl.sdm660.so /vendor/lib64/hw/
+cp /s/lib64/android.hidl.base@1.0.so /sbin/
+cp /s/lib64/vndk-sp/libhidlbase.so /sbin/
+cp /v/lib64/libdiag.so /sbin/
+cp /v/lib64/libdrmfs.so /sbin/
+cp /v/lib64/libdrmtime.so /sbin/
+cp /v/lib64/libGPreqcancel.so /sbin/
+cp /v/lib64/libGPreqcancel_svc.so /sbin/
+cp /v/lib64/libqdutils.so /sbin/
+cp /v/lib64/libqisl.so /sbin/
+cp /v/lib64/libqservice.so /sbin/
+cp /v/lib64/libQSEEComAPI.so /sbin/
+cp /v/lib64/librecovery_updater_msm.so /sbin/
+cp /v/lib64/librpmb.so /sbin/
+cp /v/lib64/libsecureui.so /sbin/
+cp /v/lib64/libSecureUILib.so /sbin/
+cp /v/lib64/libsecureui_svcsock.so /sbin/
+#cp /v/lib64/libspcom.so /sbin/
+#cp /v/lib64/libspl.so /sbin/
+cp /v/lib64/libssd.so /sbin/
+cp /v/lib64/libStDrvInt.so /sbin/
+cp /v/lib64/libtime_genoff.so /sbin/
+cp /v/lib64/libkeymasterdeviceutils.so /sbin/
+cp /v/lib64/libkeymasterprovision.so /sbin/
+cp /v/lib64/libkeymasterutils.so /sbin/
+#cp /v/lib64/hw/bootctrl.sdm660.so /vendor/lib64/hw/
 cp /v/lib64/hw/gatekeeper.sdm660.so /vendor/lib64/hw/
 cp /v/lib64/hw/keystore.sdm660.so /vendor/lib64/hw/
-cp /v/lib64/hw/android.hardware.boot@1.0-impl.so /vendor/lib64/hw/
-cp /v/lib64/hw/android.hardware.gatekeeper@1.0-impl.so /vendor/lib64/hw/
-cp /v/lib64/hw/android.hardware.keymaster@3.0-impl.so /vendor/lib64/hw/
+#cp /v/lib64/hw/android.hardware.boot@1.0-impl.so /vendor/lib64/hw/
+cp /v/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so /vendor/lib64/hw/
+cp /v/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so /vendor/lib64/hw/
 
 cp /v/manifest.xml /vendor/
 cp /v/compatibility_matrix.xml /vendor/
 
-relink  /v/bin/hw/android.hardware.boot@1.0-service
-relink  /v/bin/hw/android.hardware.keymaster@3.0-service
-relink  /v/bin/hw/android.hardware.gatekeeper@1.0-service
+#relink  /v/bin/hw/android.hardware.boot@1.0-service
+relink  /v/bin/hw/android.hardware.keymaster@3.0-service-qti
+relink  /v/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 
 cp /fw/image/keymaste.mdt /firmware/image/keymaster.mdt
 cp /fw/image/keymaste.b00 /firmware/image/keymaster.b00

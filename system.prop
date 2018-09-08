@@ -1,0 +1,10 @@
+ro.secure=0
+ro.adb.secure=0
+ro.sf.lcd_density=440
+
+persist.sys.isUsbOtgEnabled=true
+
+# support usb device
+sys.usb.controller=a800000.dwc3
+sys.usb.rndis.func.name=rndis_bam
+sys.usb.rmnet.func.name=rmnet_bam
